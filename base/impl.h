@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "base/point3d.h"
+#include "base/vec3d.h"
 
 
 namespace shudao {
@@ -11,7 +11,7 @@ namespace base {
 template <class T>
 class Impl {
  public:
-  virtual std::vector<T> GetNearBy(Point3D point, double distance) = 0;
+  virtual std::vector<T> GetNearBy(Vec3d point, double distance) = 0;
 
 
 };

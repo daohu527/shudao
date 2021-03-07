@@ -3,7 +3,7 @@
 namespace shudao {
 namespace base {
 
-class Point3D {
+class Vec3d {
  public:
 
 
