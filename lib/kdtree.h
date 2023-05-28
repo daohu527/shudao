@@ -1,7 +1,7 @@
 #pragma once
 
 namespace shudao {
-namespace base {
+namespace lib {
 
 class KDTree {
  public:
@@ -11,5 +11,5 @@ class KDTree {
 
 };
 
-}  // namespace base
+}  // namespace lib
 }  // namespace shudao

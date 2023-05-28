@@ -2,11 +2,11 @@
 
 #include <vector>
 
-#include "base/vec3d.h"
+#include "lib/vec3d.h"
 
 
 namespace shudao {
-namespace base {
+namespace lib {
 
 template <class T>
 class Impl {

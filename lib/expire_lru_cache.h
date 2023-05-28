@@ -8,7 +8,7 @@
 #include <unordered_map>
 
 namespace shudao {
-namespace base {
+namespace lib {
 
 
 template <typename K, typename V>
@@ -25,7 +25,7 @@ class ExpireLRUCache {
   using NodePtr = std::shared_ptr<Node>;
   using NodeIter = typename std::list<NodePtr>::iterator;
   using ExpiredCallBack = std::function<void(K, V)>;
-  
+
   // Default timeout is 3000ms.
   ExpireLRUCache(size_t max_size)
      : max_size_(max_size), time_out_(3000), expired_callback_(nullptr) {}
@@ -49,7 +49,7 @@ class ExpireLRUCache {
   // ms
   uint32_t time_out_;
 
-  ExpiredCallBack expired_callback_;  
+  ExpiredCallBack expired_callback_;
 };
 
 template <typename K, typename V>
@@ -78,7 +78,7 @@ void ExpireLRUCache<K, V>::Add(K key, V value) {
 template <typename K, typename V>
 V ExpireLRUCache<K, V>::Get(K key) {
   std::lock_guard<std::mutex> lock(mutex_);
-  
+
   // Todo(zero): how to call
   Expired();
 
@@ -114,5 +114,5 @@ size_t ExpireLRUCache<K, V>::Size() const {
 }
 
 
-}  // namespace base
+}  // namespace lib
 }  // namespace shudao

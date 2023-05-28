@@ -1,0 +1,1 @@
+Use [Lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2) as the underlying map format.

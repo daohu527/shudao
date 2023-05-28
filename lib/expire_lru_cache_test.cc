@@ -2,10 +2,10 @@
 #include <thread>
 
 #include "gtest/gtest.h"
-#include "base/expire_lru_cache.h"
+#include "lib/expire_lru_cache.h"
 
 namespace shudao {
-namespace base {
+namespace lib {
 
 
 TEST(AddTest, Add) {
@@ -29,7 +29,7 @@ TEST(AddFullTest, AddFull) {
   cache.Add(3, "ccc");
   cache.Add(4, "ddd");
   cache.Add(5, "eee");
-  cache.Add(6, "fff");     
+  cache.Add(6, "fff");
   EXPECT_EQ(cache.Size(), 5);
 
   EXPECT_EQ(cache.Get(1), "");
@@ -63,7 +63,7 @@ TEST(ExpireOldestTest, ExpireOldest) {
   ExpireLRUCache<int, std::string> cache(5, 10, [] (int, std::string){});
   cache.Add(1, "aaa");
   cache.Add(2, "bbb");
-  
+
   EXPECT_EQ(cache.Get(1), "aaa");
   EXPECT_EQ(cache.Get(2), "bbb");
   std::this_thread::sleep_for(std::chrono::milliseconds(9));
@@ -82,7 +82,7 @@ TEST(ExpireOldestTest, ExpireOldest) {
 TEST(ExpireCallbackTest, ExpireCallback) {
   int key = 0;
   std::string value;
-  ExpireLRUCache<int, std::string> cache(5, 10, 
+  ExpireLRUCache<int, std::string> cache(5, 10,
     [&] (int k, std::string v){
       key = k;
       value = v;
@@ -97,5 +97,5 @@ TEST(ExpireCallbackTest, ExpireCallback) {
 }
 
 
-}  // namespace base
+}  // namespace lib
 }  // namespace shudao

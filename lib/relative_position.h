@@ -1,11 +1,11 @@
 #pragma once
 
-#include "base/vec2d.h"
+#include "lib/vec2d.h"
 
 namespace shudao {
-namespace base {
+namespace lib {
 
-enum RelativePosition {
+enum class RelativePosition {
   FRONT = 0,
   BACK = 1,
   LEFT_FRONT = 2,
@@ -16,19 +16,19 @@ enum RelativePosition {
 };
 
 RelativePosition GetRelativePosition(
-    const double ths_x, 
+    const double ths_x,
     const double ths_y,
     const double other_x,
     const double other_y) {
-  Vec2d ths(ths_x, ths_y);
-  Vec2d other(other_x, other_y);
-  return GetRelativePosition(ths, other);               
+  Vec2D ths(ths_x, ths_y);
+  Vec2D other(other_x, other_y);
+  return GetRelativePosition(ths, other);
 }
 
 RelativePosition GetRelativePosition(
-    const Vec2d& ths, 
-    const Vec2d& other) {
-  
+    const Vec2D& ths,
+    const Vec2D& other) {
+
   double inner = ths.InnerProd(other);
   double cross = ths.CrossProd(other);
 
@@ -38,7 +38,7 @@ RelativePosition GetRelativePosition(
   } else if (inner > 0 && cross < 0) {
     return RelativePosition::RIGHT_FRONT;
   // Back
-  } else if (inner < 0 && cross > 0) { 
+  } else if (inner < 0 && cross > 0) {
     return RelativePosition::LEFT_BACK;
   } else if (inner < 0 && cross < 0) {
     return RelativePosition::RIGHT_BACK;
@@ -47,13 +47,13 @@ RelativePosition GetRelativePosition(
   }
 }
 
-bool IsFront(const Vec2d& ths, 
-             const Vec2d& other) {
+bool IsFront(const Vec2D& ths,
+             const Vec2D& other) {
   return ths.InnerProd(other) > 0;
 }
 
 double Distance(
-    const double x1, 
+    const double x1,
     const double y1,
     const double x2,
     const double y2) {
