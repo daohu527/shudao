@@ -5,13 +5,14 @@
 namespace shudao {
 namespace scenario {
 
-class ForwardCollision : public Scenario {
+class ForwardCollision : public Scenario<ForwardCollisionMsg> {
  public:
   ForwardCollision() = default;
   virtual ~ForwardCollision() = default;
 
   void Condition() override;
-  void Notify() override;
+  
+  void Notify(ForwardCollisionMsg* msg) override;
 
  private:
 
