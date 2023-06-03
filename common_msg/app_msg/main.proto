@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package app;
+
+import "msg/bsm_msg.proto";
+import "msg/map_msg.proto";
+import "msg/rsm_msg.proto";
+import "msg/spat_msg.proto";
+import "msg/rsi_msg.proto";
+
+message MessageFrame {
+    BasicSafetyMessage bsmFrame;
+    MapData mapFrame;
+    RoadsideSafetyMessage rsmFrame;
+    SPAT spatFrame;
+    RoadSideInformation rsiFrame;
+}

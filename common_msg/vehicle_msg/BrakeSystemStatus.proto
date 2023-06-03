@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package vehicle;
+
+message BrakeSystemStatus {
+    BrakePedalStatus brakePadel;
+    BrakeAppliedStatus wheelBrakes;
+    TractionControlStatus traction;
+    AntiLockBrakeStatus abs;
+    StabilityControlStatus scs;
+    BrakeBoostApplied brakeBoost;
+    AuxiliaryBrakeStatus auxBrakes;
+}

@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package vehicle;
+
+message AccelerationSet4Way {
+    Acceleration long;
+    Acceleration lat;
+    VerticalAcceleration vert;
+    YawRate yaw;
+}

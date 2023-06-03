@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package app;
+
+message RoadsideSafetyMessage {
+    MsgCount msgCnt;
+    string rsu_id;
+    Position3D refPos;
+    ParticipantList participants;
+}

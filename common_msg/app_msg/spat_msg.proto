@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package app;
+
+message spat {
+    MsgCount msgCnt;
+    MinuteOfTheYear timeStamp;
+    DescriptiveName name;
+    IntersectionStateList intersections;
+}

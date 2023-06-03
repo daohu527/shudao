@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package app;
+
+message RoadSideInformation {
+    MsgCount msgCnt;
+    MinuteOfTheYear timeStamp;
+    string rsu_id;
+    int rsiId;
+    AlertType alertType;
+    string description;
+    Priority priority;
+    Position3D refPos;
+    PathPointList alertPath;
+    Radius alertRadius;
+}
