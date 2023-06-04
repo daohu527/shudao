@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package rsi;
+
+import "common_msg/base_msg/position3d.proto";
+
+
+message RoadSideInformation {
+    // DE_MsgCount
+    uint64 msg_cnt = 1;
+    // DF_MinuteOfTheYear
+    int64 minute_of_year = 2;
+    string rsu_id = 3;
+    int rsi_id = 4;
+    // DE_AlertType
+    uint32 alert_type = 5;
+    string description = 6;
+    // DE_Priority
+    string priority = 7;
+    Position3D ref_pos = 8;
+    // DF_PathPointList
+    repeated PositionOffsetLLV alert_path = 9;
+    // DE_Radius
+    double alert_radius = 10;
+}

@@ -1,0 +1,94 @@
+syntax = "proto3";
+
+package base;
+
+
+message Position3D {
+  // DE_Latitude
+  double lat = 1;
+  // DE_Longitude
+  double lon = 2;
+  // DE_Elevation
+  int elevation = 3;
+}
+
+enum ElevationConfidence{
+  UNAVAILABLE = 0;
+  ELEV_500_00 = 1;
+  ELEV_200_00 = 2;
+  ELEV_100_00 = 3;
+  ELEV_050_00 = 4;
+  ELEV_020_00 = 5;
+  ELEV_010_00 = 6;
+  ELEV_005_00 = 7;
+  ELEV_002_00 = 8;
+  ELEV_001_00 = 9;
+  ELEV_000_50 = 10;
+  ELEV_000_20 = 11;
+  ELEV_000_10 = 12;
+  ELEV_000_05 = 13;
+  ELEV_000_02 = 14;
+  ELEV_000_01 = 15;
+}
+
+enum PositionConfidence {
+  UNAVAILABLE = 0;
+  A500M = 1;
+  A200M = 2;
+  A100M = 3;
+  A50M = 4;
+  A20M = 5;
+  A10M = 6;
+  A5M = 7;
+  A2M = 8;
+  A1M = 9;
+  A50CM = 10;
+  A20CM = 11;
+  A10CM = 12;
+  A5CM = 13;
+  A2CM = 14;
+  A1CM = 15;
+}
+
+message PositionConfidenceSet {
+  PositionConfidence pos = 1;
+  ElevationConfidence elevation = 2;
+}
+
+message PositionOffsetLL {
+  oneof {
+    // DF_Position_LL_24B
+    Position_LL_24B position_ll1 = 1;
+    Position_LL_28B position_ll2 = 2;
+    Position_LL_32B position_ll3 = 3;
+    Position_LL_36B position_ll4 = 4;
+    Position_LL_44B position_ll5 = 5;
+    Position_LL_48B position_ll6 = 6;
+    Position_LL_64B position_latlon = 7;
+  }
+}
+
+message VerticalOffset {
+  oneof {
+    // DE_VertOffset_B07 [int, -64-63, 10cm]
+    int offset1 = 1;
+    int offset2 = 2;
+    int offset3 = 3;
+    int offset4 = 4;
+    int offset5 = 5;
+    int offset6 = 6;
+    // DE_Elevation
+    int64 elevation = 7;
+  }
+}
+
+message PositionOffsetLLV {
+  repeated PositionOffsetLL offset_ll = 1;
+  // DF_VerticalOffset
+  repeated VerticalOffset offset_v = 2;
+}
+
+message RoadPoint {
+  // DF_PositionOffsetLLV
+  repeated PositionOffsetLLV pos_offset = 1;
+}

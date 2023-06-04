@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package bsm;
+
+import "common_msg/base_msg/base.proto";
+import "common_msg/base_msg/motion_confidence_set.proto";
+import "common_msg/base_msg/position3d.proto";
+import "common_msg/vehicle_msg/acceleration.proto";
+import "common_msg/vehicle_msg/brake_system_status.proto";
+import "common_msg/vehicle_msg/vehicle_classification.proto";
+
+message VehicleSafeyExtensions {
+    // reserve
+}
+
+message BasicSafetyMessage {
+    // DE_MsgCount
+    uint64 msg_cnt = 1;
+    string vehicle_id = 2;
+    string plate_no = 3;
+    // DE_DSecond
+    uint32 sec_mark = 4;
+    Position3D pos = 5;
+    repeated PositionConfidenceSet accuracy= 6;
+    TransmissionState transmission = 7;
+    // DE_Speed
+    double speed = 8;
+    // DE_Heading
+    double heading = 9;
+    // DE_SteeringWheelAngle
+    double angle = 10;
+    // DF_MotionConfidenceSet
+    MotionConfidenceSet motion_cfd = 11;
+    AccelerationSet4Way accel_set = 12;
+    BrakeSystemStatus brakes = 13;
+    VehicleSize size = 14;
+    VehicleClassification vehicle_class = 15;
+    VehicleSafeyExtensions safety_ext = 16;
+}

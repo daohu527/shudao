@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package spat;
+
+import "common_msg/base_msg/base.proto";
+import "common_msg/spat_msg/phase.proto";
+
+message IntersectionState {
+  NodeReferenceID intersection_id = 1;
+  // DE_IntersectionStatusObject
+  string status = 2;
+  // MinuteOfTheYear moy;
+  int64 minute_of_year = 3;
+  // DE_DSecond
+  uint32 sec_mark = 4;
+  // DF_PhaseList
+  repeated Phase phases = 5;
+}
+
+message IntersectionStateList {
+  repeated IntersectionState intersection_states = 1;
+}

@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package rsm;
+
+import "common_msg/base_msg/motion_confidence_set.proto";
+import "common_msg/vehicle_msg/acceleration.proto";
+
+enum ParticipantType {
+  UNKNOWN = 0;
+  MOTOR = 1;
+  NON_MOTOR = 2;
+  PEDESTRIAN = 3;
+  RSU = 4;
+}
+
+enum SourceType {
+  UNKNOWN = 0;
+  SELF_INFO = 1;
+  V2X = 2;
+  VIDEO = 3;
+  MICROWAVE_RADAR = 4;
+  LOOP = 5;
+}
+
+message ParticipantData {
+  ParticipantType ptc_type = 1;
+  int ptc_id = 2;
+  SourceType source = 3;
+  string id = 4;
+  string plate_no = 5;
+  // DE_DSecond
+  uint32 sec_mark = 6;
+  PositionOffsetLLV pos = 7;
+  repeated PositionConfidenceSet accuracy = 8;
+  TransmissionState transmission = 9;
+  // Speed speed;
+  double speed = 10;
+  double heading = 11;
+  // DE_SteeringWheelAngle
+  double angle = 12;
+  // DF_MotionConfidenceSet
+  repeated MotionConfidenceSet motion_cfd = 13;
+  AccelerationSet4Way accel_set = 14;
+  VehicleSize size = 15;
+  // DF_VehicleClassification
+  VehicleClassification vehicle_class = 16;
+}

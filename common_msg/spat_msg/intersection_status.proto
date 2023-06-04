@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package spat;
+
+// DE_IntersectionStatusObject
+enum IntersectionStatus {
+  manualControlIsEnabled;
+  stopTimeIsActivated;
+  failureFlash;
+  preemptIsActive;
+  signalPriorityIsActive;
+  fixedTimeOperation;
+  trafficDependentOperation;
+  standbyOperation;
+  failureMode;
+  off;
+  recentMAPmessageUpdate;
+  recentChangeInMAPassignedLanesIDsUsed;
+  noValidMAPisAvailableAtThisTime;
+  noValidSPATisAvailableAtThisTime;
+}

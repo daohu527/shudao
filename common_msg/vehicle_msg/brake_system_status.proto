@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package vehicle;
+
+
+enum BrakePedalStatus {
+  UNAVAILABLE = 0;
+  OFF = 1;
+  ON = 2;
+}
+
+enum BrakeAppliedStatus {
+  UNAVAILABLE = 0;
+  LEFT_FRONT = 1;
+  LEFT_REAR = 2;
+  RIGHT_FRONT = 3;
+  RIGHT_REAR = 4;
+}
+
+enum TractionControlStatus {
+  UNAVAILABLE = 0;
+  OFF = 1;
+  ON = 2;
+  ENGAGED = 3;
+}
+
+enum AntiLockBrakeStatus {
+  UNAVAILABLE = 0;
+  OFF = 1;
+  ON = 2;
+  ENGAGED = 3;
+}
+
+enum StabilityControlStatus {
+  UNAVAILABLE = 0;
+  OFF = 1;
+  ON = 2;
+  ENGAGED = 3;
+}
+
+enum BrakeBoostApplied {
+  UNAVAILABLE = 0;
+  OFF = 1;
+  ON = 2;
+}
+
+enum AuxiliaryBrakeStatus {
+  UNAVAILABLE= 0;
+  OFF = 1;
+  ON = 2;
+  RESERVED = 3;
+}
+
+message BrakeSystemStatus {
+  BrakePedalStatus brake_padel = 1;
+  BrakeAppliedStatus wheel_brakes = 2;
+  TractionControlStatus traction = 3;
+  AntiLockBrakeStatus abs = 4;
+  StabilityControlStatus scs = 5;
+  BrakeBoostApplied brake_boost = 6;
+  AuxiliaryBrakeStatus aux_brakes = 7;
+}

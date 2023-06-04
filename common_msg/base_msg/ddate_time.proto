@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package base;
+
+
+message DDateTime {
+    // DYear year;
+    // DMonth month;
+    // DDay day;
+    // DHour hour;
+    // DMinute minute;
+    // DSecond second;
+    // DTimeOffset offset;
+    uint32 year = 1;
+    uint32 month = 2;
+    uint32 day = 3;
+    uint32 hour = 4;
+    uint32 minute = 5;
+    uint32 second = 6;
+    uint32 offset = 7;
+}

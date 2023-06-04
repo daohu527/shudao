@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package spat;
+
+import "common_msg/spat_msg/intersection_state.proto";
+
+message SPAT {
+    // DE_MsgCount
+    uint64 msg_cnt = 1;
+    // MinuteOfTheYear timeStamp;
+    int64 minute_of_year = 2;
+    // DE_DescriptiveName
+    string name = 3;
+    // DF_IntersectionStateList
+    repeated IntersectionState intersections = 4;
+}

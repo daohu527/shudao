@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package base;
+
+
+enum HeadingConfidence {
+  UNAVAILABLE = 0;
+  PREC10DEG = 1;
+  PREC05DEG = 2;
+  PREC01DEG = 3;
+  PREC0_1DEG = 4;
+  PREC0_05DEG = 5;
+  PREC0_01DEG = 6;
+  PREC0_0125DEG = 7;
+}
+
+enum SpeedConfidence{
+  UNAVAILABLE = 0;
+  PREC100MS = 1;
+  PREC10MS = 2;
+  PREC5MS = 3;
+  PREC1MS = 4;
+  PREC0_1MS = 5;
+  PREC0_05MS = 6;
+  PREC0_01MS = 7;
+}
+
+enum SteeringWheelAngleConfidence {
+  UNAVAILABLE = 0;
+  PREC2DEG = 1;
+  PREC1DEG = 2;
+  PREC0_02DEG = 3;
+}
+
+message MotionConfidenceSet {
+  SpeedConfidence speed_cfd = 1;
+  HeadingConfidence heading_cfd = 2;
+  SteeringWheelAngleConfidence steer_cfd = 3;
+}

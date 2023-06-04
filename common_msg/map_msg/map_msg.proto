@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package map;
+
+import "common_msg/map_msg/link.proto";
+
+message MapData {
+    // DE_MsgCount
+    uint64 msg_cnt = 1;
+    // DE_MinuteOfTheYear
+    int64 minute_of_year = 2;
+    repeated Node nodes = 3;
+}

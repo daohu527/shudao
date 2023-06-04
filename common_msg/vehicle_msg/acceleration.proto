@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package vehicle;
+
+
+message AccelerationSet4Way {
+  // DE_Acceleration [int, -2000-2000, 0.01m/s^2]
+  double acc_lon = 1;
+  double acc_lat = 2;
+  // DE_VerticalAcceleration [int, -127-127, 0.02g]
+  double acc_vert = 3;
+  // DE_YawRate [int, -32767-32767, 0.01]
+  double yaw = 4;
+}

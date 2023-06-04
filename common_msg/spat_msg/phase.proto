@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package spat;
+
+
+enum LightState {
+  UNAVAILABLE = 0;
+  DARK = 1;
+  STOP_THEN_PROCEED = 2;
+  STOP_AND_REMAIN = 3;
+  PRE_MOVEMENT = 4;
+  PERMISSIVE_MOVEMENT_ALLOWED = 5;
+  PROTECTED_MOVEMENT_ALLOWED = 6;
+  INTERSECTION_CLEARANCE = 7;
+  CAUTION_CONFLICTING_TRAFFIC = 8;
+}
+
+message TimeChangeDetails {
+  // DE_TimeMark [int, 0 ~ 35999, 0.1s]
+  double start_time = 1;
+  double min_end_time = 2;
+  double max_end_time = 3;
+  double likely_end_time = 4;
+  // DE_Confidence
+  int time_confidence = 5;
+  double next_start_time = 6;
+  double next_duration = 7;
+}
+
+message PhaseState {
+  LightState light = 1;
+  TimeChangeDetails timing = 2;
+}
+
+message Phase {
+  // DE_PhaseID
+  uint32 phase_id = 1;
+  repeated PhaseState phase_states = 2;
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package base;
+
+
+message SignalState {
+  // DF_IntersectionStatusObject
+  string status = 1;
+  // DE_MinuteOfTheYear
+  int64 minute_of_year = 2;
+  // DE_DSecond
+  uint32 sec_mark = 3;
+  // DF_PhaseList
+  repeated Phase phases = 4;
+}

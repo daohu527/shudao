@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package vehicle;
+
+
+message VehicleClassification {
+  repeated BasicVehicleClass classification = 1;
+}
+
+enum VehicleEventFlags {
+  HazardLights = 1;
+  StopLineViolation = 2;
+  ABS = 3;
+  TractionControl = 4;
+  StabilityControl = 5;
+  HazardousMaterials = 6;
+  HardBraking = 7;
+  LighisChanged = 8;
+  WipersChanged = 9;
+  FlatTire = 10;
+  DisabledVehicle = 11;
+  AirBagDeployment = 12;
+}
+
+enum ExteriorLights {
+  lowBeamHeadlightsOn = 1;
+  highBeamHeadlightsOn = 2;
+  leftTurnSignalOn = 3;
+  rightTurnSignalOn = 4;
+  hazardSignalOn = 5;
+  automaticLightControlOn = 6;
+  daytimeRunningLightsOn = 7;
+  fogLightOn = 8;
+  parkingLightsOn = 9;
+}
+
+message VehicleSafetyExtensions {
+  // DE_VehicleEventFlags
+  VehicleEventFlags events = 1;
+  PathHistory path_history = 2;
+  PathPrediction path_prediction = 3;
+  // DE_ExteriorLights
+  string lights = 4;
+}
+
+message VehicleSize {
+  // DE_VehicleWidth [int, 0-127, 5cm]
+  // DE_VehicleLength [int, 0-4096, 1cm]
+  // DE_VehicleHeight [int, 0-1023, 1cm]
+  double width = 1;
+  double length = 2;
+  double height = 3;
+}

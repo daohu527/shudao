@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package base;
+
+import "common_msg/base_msg/base.proto";
+import "common_msg/base_msg/ddate_time.proto";
+import "common_msg/base_msg/motion_confidence_set.proto";
+
+
+enum TimeConfidence {
+  UNAVAILABLE = 0;
+  TIME_100_000 = 1;
+  TIME_050_000 = 2;
+  TIME_020_000 = 3;
+  TIME_010_000 = 4;
+  TIME_002_000 = 5;
+  TIME_001_000 = 6;
+  TIME_000_500 = 7;
+  TIME_000_200 = 8;
+  TIME_000_100 = 9;
+  TIME_000_050 = 10;
+  TIME_000_020 = 11;
+  TIME_000_010 = 12;
+  TIME_000_005 = 13;
+  TIME_000_002 = 14;
+  TIME_000_001 = 15;
+  // todo(zero): need to complete
+}
+
+message FullPositionVector {
+  DDateTime utc_time = 1;
+  Position3D pos = 2;
+  double heading = 3;
+  TransmissionState transmission = 4;
+  // DE_Speed
+  double speed = 5;
+  repeated PositionConfidenceSet pos_accuracy = 6;
+  TimeConfidence time_confidence = 7;
+  repeated PositionConfidenceSet pos_confidence = 8;
+  MotionConfidenceSet motion_cfd = 9;
+}

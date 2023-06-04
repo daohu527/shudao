@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package rsm;
+
+import "common_msg/base_msg/position3d.proto"
+import "common_msg/rsm_msg/participant_data.proto";
+
+message RoadsideSafetyMessage {
+    // DE_MsgCount
+    uint64 msg_cnt = 1;
+    string rsu_id = 2;
+    Position3D ref_pos = 3;
+    repeated ParticipantData participants = 4;
+}

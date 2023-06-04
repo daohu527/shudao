@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package base;
+
+import "common_msg/base_msg/full_position_vector.proto";
+
+
+enum GNSSstatus {
+  UNAVAILABLE = 0;
+  IS_HEALTHY = 1;
+  IS_MONITORED = 2;
+  BASE_STATION_TYPE = 3;
+  APDOP_OF_UNDER5 = 4;
+  IN_VIEW_OF_UNDER5 = 5;
+  LOCAL_CORRECTIONS_PRESENT = 6;
+  NETWORK_CORRECTIONS_PRESENT= 7;
+}
+
+message PathHistoryPoint {
+  PositionOffsetLLV llvOffset = 1;
+  // DE_TimeOffset [int, 1-65535, 10ms]
+  double time_offset = 2;
+  // DE_Speed
+  double speed = 3;
+  repeated PositionConfidenceSet pos_accuracy = 4;
+  // DE_CoarseHeading
+  double heading = 5;
+}
+
+message PathHistory {
+  FullPositionVector initial_position = 1;
+  // DF_GNSSstatus
+  string cur_gnss_status = 2;
+  // DF_PathHistoryPointList
+  repeated PathHistoryPoint crumb_data = 3;
+}
+
+message PathPrediction {
+  // DE_RadiusOfCurvature
+  double radius_of_curve = 1;
+  // DE_Confidence
+  double confidence = 2;
+}

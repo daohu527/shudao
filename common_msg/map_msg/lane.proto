@@ -1,0 +1,139 @@
+syntax = "proto3";
+
+package map;
+
+import "common_msg/map_msg/connection.proto";
+
+
+message BarrierLaneAttributes {
+  median-RevocableLane;
+  median;
+  whiteLineHashing;
+  stripeLines;
+  doubleStripedLines;
+  trafficCones;
+  constructionBarrier;
+  trafficChannels;
+  lowCurbs;
+  highCurbs;
+}
+
+message BikeLaneAttributes {
+  bikeRevocableLane;
+  pedestrianUseAllowed;
+  isBikeFlyOverLane;
+  fixedCycleTime;
+  biDirectionalCycleTimes;
+  isolatedByBarrier;
+  unsignalizedSegmentsPresent;
+}
+
+message CrosswalkLaneAttributes {
+  crosswalkRevocableLane;
+  bicyleUseAllowed;
+  isXwalkFlyOverLane;
+  fixedCycleTime;
+  biDirectionalCycleTimes;
+  hasPushToWalkButton;
+  audioSupport;
+  rfSignalRequestPresent;
+  unsignalizedSegmentsPresent;
+}
+
+message ParkingLaneAttributes {
+  parkingRevocableLane;
+  parallelParkingInUse;
+  headInParkingInUse;
+  doNotParkZone;
+  parkingForBusUse;
+  parkingForTaxiUse;
+  noPublicParkingUse;
+}
+
+message SidewalkLaneAttributes {
+  sidewalkRevocableLane;
+  bicyleUseAllowed;
+  isSidewalkFlyOverLane;
+  walkBikes;
+}
+
+message StripingLaneAttributes {
+  stripeToConnectingLanesRevocableLane;
+  stripeDrawOnLeft;
+  stripeDrawOnRight;
+  stripeToConnectingLanesLeft;
+  stripeToConnectingLanesRight;
+  stripeToConnectingLanesAhead;
+}
+
+message TrackedVehicleLaneAttributes {
+  specRevocableLane;
+  specCommuterRailRoadTrack;
+  specLightRailRoadTrack;
+  specHeavyRailRoadTrack;
+  specOtherRailType;
+}
+
+message VehicleLaneAttributes {
+  isVehicleRevocableLane;
+  isVehicleFlyOverLane;
+  hovLaneUseOnly;
+  restrictedToBusUse;
+  restrictedToTaxiUse;
+  restrictedFromPublicUse;
+  hasIRbeaconCoverage;
+  permissionOnRequest;
+}
+
+message LaneSharing {
+  overlappingLaneDescriptionProvided;
+  multipleLanesTreatedAsOneLane;
+  otherNonMotorizedTrafficTypes;
+  individualMotorizedVehicleTraffic;
+  busVehicleTraffic;
+  taxiVehicleTraffic;
+  pedestriansTraffic;
+  cyclist VehicleTraffic;
+  trackedVehicleTraffic;
+  pedestrianTraffic;
+}
+
+message LaneTypeAttributes {
+  oneof {
+    // VehicleLaneAttributes vehicle;
+    // CrosswalkLaneAttributes crosswalk;
+    // BikeLaneAttributes bikeLane;
+    // SidewalkLaneAttributes sidewalk;
+    // BarrierLaneAttributes median;
+    // StripingLaneAttributes striping;
+    // TrackedVehicleLaneAttributes trackedVehicle;
+    // ParkingLaneAttributes parking;
+    string vehicle_lane_attributes = 1;
+    string crosswalk_lane_attributes = 2;
+    string bike_lane_attributes = 3;
+    string sidewalk_lane_attributes = 4;
+    string median_lane_attributes = 5;
+    string striping_lane_attributes = 6;
+    string tracked_vehicle_lane_attributes = 7;
+    string parking_lane_attributes = 8;
+  }
+}
+
+message LaneAttributes {
+  // DE_LaneSharing
+  string share_with = 1;
+  // DF_LaneTypeAttributes
+  LaneTypeAttributes lane_type = 2;
+}
+
+message Lane {
+  // DE_LaneID [int, 0-255]
+  int lane_id = 1;
+  repeated LaneAttributes lane_attributes = 2;
+  AllowedManeuvers maneuvers = 3;
+  ConnectsToList connects_to = 4;
+  // DF_SpeedLimitList
+  repeated RegulatorySpeedLimit speed_limits = 5;
+  // DF_PointList
+  repeated RoadPoint points = 6;
+}

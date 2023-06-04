@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package map;
+
+import "common_msg/base_msg/base.proto";
+
+message ConnectingLane {
+    // DE_LaneID
+    int lane_id = 1;
+    AllowedManeuvers maneuver = 2;
+}
+
+message Connection {
+    NodeReferenceID remote_intersection = 1;
+    ConnectingLane connecting_lane = 2;
+    // DE_PhaseID
+    uint32 phase_id = 3;
+}
+
+message ConnectsToList {
+  repeated Connection connections = 1;
+}

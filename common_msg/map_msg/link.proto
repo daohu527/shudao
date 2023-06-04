@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package map;
+
+import "common_msg/base_msg/base.proto";
+import "common_msg/base_msg/position3d.proto";
+import "common_msg/base_msg/regulatory_speed_limit.proto";
+
+message Movement {
+  NodeReferenceID remote_intersection = 1;
+  // DE_PhaseID
+  uint32 phase_id = 2;
+}
+
+message Link {
+  // DE_DescriptiveName
+  string name = 1;
+  NodeReferenceID upstream_node_id = 2;
+  // DF_SpeedLimitList
+  repeated RegulatorySpeedLimit speed_limits = 3;
+  // DE_LaneWidth
+  double lane_width = 4;
+  // DF_PointList
+  repeated RoadPoint points = 5;
+  // DF_MovementList
+  repeated Movement movements = 6;
+  // DF_LaneList
+  repeated Lane lanes = 7;
+}
+
+message Node {
+  // DE_DescriptiveName
+  string name = 1;
+  NodeReferenceID id = 2;
+  Position3D ref_pos = 3;
+  repeated Link in_links = 4;
+}
