@@ -4,6 +4,15 @@ package rsi;
 
 import "common_msg/base_msg/position3d.proto";
 
+enum AlertType {
+    TEXT_MESSAGE_WARNING = 0;
+    SHARP_TURN = 2;
+    ROCKFALL = 15;
+    SLIPPY = 17;
+    TUNNEL = 21;
+    DANGER = 37;
+    UNDER_CONSTRUCTION = 38;
+}
 
 message RoadSideInformation {
     // DE_MsgCount
@@ -13,7 +22,7 @@ message RoadSideInformation {
     string rsu_id = 3;
     int rsi_id = 4;
     // DE_AlertType
-    uint32 alert_type = 5;
+    AlertType alert_type = 5;
     string description = 6;
     // DE_Priority
     string priority = 7;
