@@ -5,10 +5,10 @@
 namespace shudao {
 namespace scenario {
 
-class ReverseOvertaking : public Scenario<BasicSafetyMessage> {
+class EmergencyBrakeWarning : public Scenario<BasicSafetyMessage> {
  public:
-  ReverseOvertaking() = default;
-  virtual ~ReverseOvertaking() = default;
+  EmergencyBrakeWarning() = default;
+  virtual ~EmergencyBrakeWarning() = default;
 
   void Condition() override;
   

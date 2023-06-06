@@ -5,10 +5,10 @@
 namespace shudao {
 namespace scenario {
 
-class RedLightWarning : public Scenario<RoadsideSafetyMessage> {
+class HazardLocationWarning : public Scenario<RoadsideSafetyMessage> {
  public:
-  RedLightWarning() = default;
-  virtual ~RedLightWarning() = default;
+  HazardLocationWarning() = default;
+  virtual ~HazardLocationWarning() = default;
 
   void Condition() override;
   
