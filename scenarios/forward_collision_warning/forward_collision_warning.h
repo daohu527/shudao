@@ -7,10 +7,10 @@
 namespace shudao {
 namespace scenario {
 
-class ForwardCollision : public Scenario<BasicSafetyMessage> {
+class ForwardCollisionWarning : public Scenario<BasicSafetyMessage> {
  public:
-  ForwardCollision() = default;
-  virtual ~ForwardCollision() = default;
+  ForwardCollisionWarning() = default;
+  virtual ~ForwardCollisionWarning() = default;
 
   bool Init(const Config &conf);
 

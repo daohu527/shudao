@@ -5,14 +5,14 @@
 namespace shudao {
 namespace scenario {
 
-class AbnormalVehicle : public Scenario<BasicSafetyMessage> {
+class InVehicleSignage : public Scenario<RoadSideInformation> {
  public:
-  AbnormalVehicle() = default;
-  virtual ~AbnormalVehicle() = default;
+  InVehicleSignage() = default;
+  virtual ~InVehicleSignage() = default;
 
   void Condition() override;
   
-  void Notify(const BasicSafetyMessage &msg) override;
+  void Notify(const RoadSideInformation &msg) override;
 
  private:
 
