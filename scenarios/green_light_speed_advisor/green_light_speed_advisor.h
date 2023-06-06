@@ -5,10 +5,10 @@
 namespace shudao {
 namespace scenario {
 
-class InVehicleSigns : public Scenario<RoadSideInformation> {
+class GreenLightSpeedAdvisor : public Scenario<RoadSideInformation> {
  public:
-  InVehicleSigns() = default;
-  virtual ~InVehicleSigns() = default;
+  GreenLightSpeedAdvisor() = default;
+  virtual ~GreenLightSpeedAdvisor() = default;
 
   void Condition() override;
   

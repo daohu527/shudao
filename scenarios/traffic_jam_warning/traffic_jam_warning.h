@@ -5,10 +5,10 @@
 namespace shudao {
 namespace scenario {
 
-class CongestionAlert : public Scenario<RoadSideInformation> {
+class TrafficJamWarning : public Scenario<RoadSideInformation> {
  public:
-  CongestionAlert() = default;
-  virtual ~CongestionAlert() = default;
+  TrafficJamWarning() = default;
+  virtual ~TrafficJamWarning() = default;
 
   void Condition() override;
   

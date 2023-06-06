@@ -5,10 +5,10 @@
 namespace shudao {
 namespace scenario {
 
-class EmergencyVehicle : public Scenario<RoadSideInformation> {
+class EmergencyVehicleWarning : public Scenario<RoadSideInformation> {
  public:
-  EmergencyVehicle() = default;
-  virtual ~EmergencyVehicle() = default;
+  EmergencyVehicleWarning() = default;
+  virtual ~EmergencyVehicleWarning() = default;
 
   void Condition() override;
   

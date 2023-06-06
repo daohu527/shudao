@@ -5,10 +5,10 @@
 namespace shudao {
 namespace scenario {
 
-class GreenWave : public Scenario<RoadSideInformation> {
+class VehicleNearFieldPayment : public Scenario<RoadSideInformation> {
  public:
-  GreenWave() = default;
-  virtual ~GreenWave() = default;
+  VehicleNearFieldPayment() = default;
+  virtual ~VehicleNearFieldPayment() = default;
 
   void Condition() override;
   

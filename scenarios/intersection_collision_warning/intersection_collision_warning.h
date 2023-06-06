@@ -5,10 +5,10 @@
 namespace shudao {
 namespace scenario {
 
-class PedestrianCollision : public Scenario<RoadsideSafetyMessage> {
+class IntersectionCollisionWarning : public Scenario<RoadsideSafetyMessage> {
  public:
-  PedestrianCollision() = default;
-  virtual ~PedestrianCollision() = default;
+  IntersectionCollisionWarning() = default;
+  virtual ~IntersectionCollisionWarning() = default;
 
   void Condition() override;
   
