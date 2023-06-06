@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package network;
+
+service CarToObu {
+    rpc PublishCarStatus(stream CarStatus) return(stream Respond) {}
+}
+
+message CarStatus {
+
+}
+
+message Respond {
+
+}
