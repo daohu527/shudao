@@ -7,10 +7,10 @@
 namespace shudao {
 namespace network {
 
-class Client {
+class GrpcClient {
 
 };
 
 
-}
-}
+}  // namespace network
+}  // namespace shudao

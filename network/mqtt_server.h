@@ -3,10 +3,8 @@
 namespace shudao {
 namespace network {
 
-class MQTTClient {
- public:
-  bool Init();
-  
+class MQTTServer {
+
 };
 
 }  // namespace network

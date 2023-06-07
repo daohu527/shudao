@@ -5,15 +5,15 @@
 namespace shudao {
 namespace app {
 
-class RSU {
+class Car {
  public:
-  RSU();
-  virtual ~RSU();
+  Car();
+  virtual ~Car();
 
   bool Init();
 
  private:
-  std::shared_ptr<MQTTServer> mqtt_server_;
+  std::shared_ptr<GrpcServer> server_;
 };
 
 }  // namespace app

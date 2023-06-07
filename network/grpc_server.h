@@ -7,10 +7,10 @@
 namespace shudao {
 namespace network {
 
-class Server {
+class GrpcServer {
 
 };
 
 
-}
-}
+}  // namespace network
+}  // namespace shudao
