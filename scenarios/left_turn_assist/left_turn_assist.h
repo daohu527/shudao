@@ -5,14 +5,16 @@
 namespace shudao {
 namespace scenario {
 
-class LeftTurnAssist : public Scenario<RoadsideSafetyMessage> {
+class LeftTurnAssist : public Scenario {
  public:
   LeftTurnAssist() = default;
   virtual ~LeftTurnAssist() = default;
 
-  void Condition() override;
-  
-  void Notify(const RoadsideSafetyMessage &msg) override;
+  bool Condition(const impl::EgoImpl &ego_impl,
+                 const impl::EnvImpl &env_impl) override;
+
+  // const RoadsideSafetyMessage &msg
+  bool Notify() override;
 
  private:
 

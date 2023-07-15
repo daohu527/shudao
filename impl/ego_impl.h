@@ -13,6 +13,8 @@ class EgoImpl {
   EgoImpl();
   virtual ~EgoImpl();
 
+  void AddStatus(Status status);
+
   ParticipantPtr GetEgo() const { return ego_; }
 
  private:

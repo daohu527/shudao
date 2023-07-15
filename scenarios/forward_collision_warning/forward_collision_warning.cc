@@ -20,16 +20,16 @@ bool ForwardCollision::Condition(const impl::EgoImpl &ego_impl,
     }
   }
 
-  if (nearest_front_p) {
-    BasicSafetyMessage msg;
-    ConstructMsg(nearest_front_p, &msg);
-    Notify(msg);
+  if (nearest_front_p != nullptr) {
+    return true;
   }
 
-  return true;
+  return false;
 }
 
-bool ForwardCollision::Notify(const BasicSafetyMessage &msg) {
+bool ForwardCollision::Notify() {
+  BasicSafetyMessage msg;
+  ConstructMsg(nearest_front_p, &msg);
   return true;
 }
 

@@ -5,14 +5,16 @@
 namespace shudao {
 namespace scenario {
 
-class AbnormalVehicleWarning : public Scenario<BasicSafetyMessage> {
+class AbnormalVehicleWarning : public Scenario {
  public:
   AbnormalVehicleWarning() = default;
   virtual ~AbnormalVehicleWarning() = default;
 
-  void Condition() override;
-  
-  void Notify(const BasicSafetyMessage &msg) override;
+  bool Condition(const impl::EgoImpl &ego_impl,
+                 const impl::EnvImpl &env_impl) override;
+
+  // const BasicSafetyMessage &msg
+  bool Notify() override;
 
  private:
 

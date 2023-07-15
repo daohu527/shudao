@@ -5,14 +5,15 @@
 namespace shudao {
 namespace scenario {
 
-class BlindSpotWarning : public Scenario<BasicSafetyMessage> {
+class BlindSpotWarning : public Scenario {
  public:
   BlindSpotWarning() = default;
   virtual ~BlindSpotWarning() = default;
 
-  void Condition() override;
-  
-  void Notify(const BasicSafetyMessage &msg) override;
+  bool Condition(const impl::EgoImpl &ego_impl,
+                 const impl::EnvImpl &env_impl) override;
+
+  bool Notify() override;
 
  private:
 

@@ -5,13 +5,13 @@
 namespace shudao {
 namespace scenario {
 
-class RedLightViolationWarning : public Scenario<RoadsideSafetyMessage> {
+class RedLightViolationWarning : public Scenario {
  public:
   RedLightViolationWarning() = default;
   virtual ~RedLightViolationWarning() = default;
 
   void Condition() override;
-  
+
   void Notify(const RoadsideSafetyMessage &msg) override;
 
  private:

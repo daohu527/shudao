@@ -2,6 +2,8 @@
 
 #include <vector>
 
+#include "network/grpc_server.h"
+
 namespace shudao {
 namespace app {
 
@@ -13,7 +15,7 @@ class Car {
   bool Init();
 
  private:
-  std::shared_ptr<GrpcServer> server_;
+  std::shared_ptr<network::GrpcServer> server_;
 };
 
 }  // namespace app

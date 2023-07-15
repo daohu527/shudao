@@ -5,13 +5,13 @@
 namespace shudao {
 namespace scenario {
 
-class ReverseOvertakingWarning : public Scenario<BasicSafetyMessage> {
+class ReverseOvertakingWarning : public Scenario {
  public:
   ReverseOvertakingWarning() = default;
   virtual ~ReverseOvertakingWarning() = default;
 
   void Condition() override;
-  
+
   void Notify(const BasicSafetyMessage &msg) override;
 
  private:

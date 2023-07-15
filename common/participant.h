@@ -16,15 +16,15 @@ class Participant {
   virtual ~Participant();
 
  protected:
-  std::string id;
+  std::string id_;
 
-  lib::Point3D pos;
-  lib::Vec2D vec;
-  lib::Vec2D acc;
+  lib::Point3D pos_;
+  lib::Vec2D vec_;
+  lib::Vec2D acc_;
 
-  int l;
-  int w;
-  int h;
+  float l_;
+  float w_;
+  float h_;
 };
 
 typedef ParticipantPtr std::shared_ptr<Participant>;

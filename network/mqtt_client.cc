@@ -12,7 +12,7 @@ bool MQTTClient::Init() {
   callback cb;
   cli_.set_callback(cb);
 
-  auto connOpts = mqtt::connect_options_builder() 
+  auto connOpts = mqtt::connect_options_builder()
       .keep_alive_interval(20);
       .clean_session()
       .finalize();
@@ -21,7 +21,7 @@ bool MQTTClient::Init() {
     auto tok = cli_.connect(connOpts);
     auto rsp = tok->get_connect_response();
 		if (!rsp.is_session_present())
-			cli.subscribe(TOPIC, QOS)->wait();    
+			cli.subscribe(TOPIC, QOS)->wait();
 
 		while (true) {
 			auto msg = cli.consume_message();
@@ -35,19 +35,16 @@ bool MQTTClient::Init() {
     cli_.publish(TOPIC, pubmsg);
 
     // Now try with itemized publish.
-
-    cli_.publish(TOPIC, PAYLOAD2, strlen(PAYLOAD2)+1, 0, false);    
-  }
-  catch (const mqtt::persistence_exception& exc) {
+    cli_.publish(TOPIC, PAYLOAD2, strlen(PAYLOAD2)+1, 0, false);
+  } catch (const mqtt::persistence_exception& exc) {
     cerr << "Persistence Error: " << exc.what() << " ["
         << exc.get_reason_code() << "]" << endl;
     return false;
-  }
-  catch (const mqtt::exception& exc) {
+  } catch (const mqtt::exception& exc) {
     cerr << "Error: " << exc.what() << " ["
         << exc.get_reason_code() << "]" << endl;
     return false;
-  }      
+  }
 
   return true;
 }

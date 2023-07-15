@@ -5,13 +5,13 @@
 namespace shudao {
 namespace scenario {
 
-class GreenLightSpeedAdvisor : public Scenario<RoadSideInformation> {
+class GreenLightSpeedAdvisor : public Scenario {
  public:
   GreenLightSpeedAdvisor() = default;
   virtual ~GreenLightSpeedAdvisor() = default;
 
   void Condition() override;
-  
+
   void Notify(const RoadSideInformation &msg) override;
 
  private:

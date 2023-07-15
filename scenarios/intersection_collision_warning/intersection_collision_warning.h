@@ -5,13 +5,13 @@
 namespace shudao {
 namespace scenario {
 
-class IntersectionCollisionWarning : public Scenario<RoadsideSafetyMessage> {
+class IntersectionCollisionWarning : public Scenario {
  public:
   IntersectionCollisionWarning() = default;
   virtual ~IntersectionCollisionWarning() = default;
 
   void Condition() override;
-  
+
   void Notify(const RoadsideSafetyMessage &msg) override;
 
  private:

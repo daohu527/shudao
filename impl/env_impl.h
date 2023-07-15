@@ -16,8 +16,8 @@ class EnvImpl {
  public:
   using Vec2D = shudao::lib::Vec2D;
   using ParticipantPtr = common::ParticipantPtr;
-  using ParticipantCache =
-            shudao::lib::ExpireLRUCache<std::string, ParticipantPtr>;
+  using ID = std::string;
+  using ParticipantCache = shudao::lib::ExpireLRUCache<ID, ParticipantPtr>;
 
  public:
   EnvImpl();
@@ -25,7 +25,7 @@ class EnvImpl {
 
   bool AddParticipant(const ParticipantPtr& participant);
   bool DelParticipant(const ParticipantPtr& participant);
-  bool GetParticipant(std::string id, ParticipantPtr participant) const;
+  bool GetParticipant(ID id, ParticipantPtr participant) const;
 
   bool GetNearBy(Vec2D point, double distance,
                  std::vector<ParticipantPtr>* participants);

@@ -5,14 +5,15 @@
 namespace shudao {
 namespace scenario {
 
-class ControlLossWarning : public Scenario<BasicSafetyMessage> {
+class ControlLossWarning : public Scenario {
  public:
   ControlLossWarning() = default;
   virtual ~ControlLossWarning() = default;
 
-  void Condition() override;
-  
-  void Notify(const BasicSafetyMessage &msg) override;
+  bool Condition(const impl::EgoImpl &ego_impl,
+                 const impl::EnvImpl &env_impl) override;
+
+  bool Notify() override;
 
  private:
 

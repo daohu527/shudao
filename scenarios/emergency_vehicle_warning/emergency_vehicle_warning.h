@@ -5,14 +5,16 @@
 namespace shudao {
 namespace scenario {
 
-class EmergencyVehicleWarning : public Scenario<RoadSideInformation> {
+class EmergencyVehicleWarning : public Scenario {
  public:
   EmergencyVehicleWarning() = default;
   virtual ~EmergencyVehicleWarning() = default;
 
-  void Condition() override;
-  
-  void Notify(const RoadSideInformation &msg) override;
+  bool Condition(const impl::EgoImpl &ego_impl,
+                 const impl::EnvImpl &env_impl) override;
+
+  // const RoadSideInformation &msg
+  bool Notify() override;
 
  private:
 

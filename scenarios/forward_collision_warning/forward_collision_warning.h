@@ -7,7 +7,7 @@
 namespace shudao {
 namespace scenario {
 
-class ForwardCollisionWarning : public Scenario<BasicSafetyMessage> {
+class ForwardCollisionWarning : public Scenario {
  public:
   ForwardCollisionWarning() = default;
   virtual ~ForwardCollisionWarning() = default;
@@ -17,7 +17,7 @@ class ForwardCollisionWarning : public Scenario<BasicSafetyMessage> {
   bool Condition(const impl::EgoImpl &ego_impl,
                  const impl::EnvImpl &env_impl) override;
 
-  bool Notify(const BasicSafetyMessage &msg) override;
+  bool Notify() override;
 
  private:
   bool IsSameLane(const ParticipantPtr &ego, const ParticipantPtr &other);
